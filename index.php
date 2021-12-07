@@ -3,6 +3,7 @@
 	<meta charset="utf-8">
 	<?php
 		require_once('system/connection.php');
+		require_once('system/smtp.php');
 		$menulogin = null;
 		$menulogin2 = null;
 		$prioridade1 = null;
@@ -132,9 +133,9 @@
 						$erro = "<div><span class=\"erro\">Informe sua Senha!</span></div>";
 					}
 					else {
-						$result = mysql_query("SELECT * FROM `funcionario` WHERE `login_fun` = '$login' and `senha_fun` = '$senha' and `status_fun` = 0");
+						$result = mysqli_query($connection, "SELECT * FROM `funcionario` WHERE `login_fun` = '$login' and `senha_fun` = '$senha' and `status_fun` = 0");
 					
-						if(mysql_num_rows($result) != "") {
+						if(mysqli_num_rows($result) != "") {
 					
 							while ($sql = mysql_fetch_array($result)) {
 								$_SESSION['nome'] = $sql[1];

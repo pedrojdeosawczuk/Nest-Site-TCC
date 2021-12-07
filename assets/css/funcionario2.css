@@ -1,0 +1,38 @@
+#alteracoes {
+    position: fixed;
+    _position:absolute;
+    _margin-bottom:0;
+    _margin-right:0;
+    right:0;
+    bottom:0;
+	background-color: #666;
+}
+.funcionarios {
+	padding: 5px;
+	background-color: rgba(54, 54, 54, 1);
+	border: 2px solid  #02b8fa;
+}
+
+.funcionarios a:link {
+	color: #999;
+	text-decoration: none;
+}
+.funcionarios a:visited {
+	color: #999;
+	text-decoration: none;
+}
+.funcionarios a:hover {
+	color: #02b8fa;
+	text-decoration: underline;
+}
+.funcionarios a:active {
+	color: #999;
+	text-decoration: none;
+}
+
+.funcionarios div {
+	color: #999;
+}
+.btnmostrar {
+	width: 33.33%;
+}

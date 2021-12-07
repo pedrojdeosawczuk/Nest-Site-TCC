@@ -1,0 +1,14 @@
+.grey ul.dropdown li:hover>a, .grey>li.active>a, .grey>li:hover>a {
+	background:#82837E;
+	color:#fff
+}
+.grey li>.megamenu form input[type=text]:focus, .grey li>.megamenu form textarea:focus {
+	border-color:#82837E
+}
+.grey li>.megamenu form input[type=submit]:hover {
+	background:#82837E;
+	color:#fff
+}
+.grey li>.megamenu a:hover {
+	color:#dedede
+}

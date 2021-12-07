@@ -1,0 +1,14 @@
+.emerald ul.dropdown li:hover>a, .emerald>li.active>a, .emerald>li:hover>a {
+	background:#2ecc71;
+	color:#fff
+}
+.emerald li>.megamenu form input[type=text]:focus, .emerald li>.megamenu form textarea:focus {
+	border-color:#2ecc71
+}
+.emerald li>.megamenu form input[type=submit]:hover {
+	background:#2ecc71;
+	color:#fff
+}
+.emerald li>.megamenu a:hover {
+	color:#2ecc71
+}

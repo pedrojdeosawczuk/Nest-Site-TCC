@@ -1,0 +1,14 @@
+.pox ul.dropdown li:hover>a, .pox>li.active>a, .pox>li:hover>a {
+	background:#FA023C;
+	color:#fff
+}
+.pox li>.megamenu form input[type=text]:focus, .pox li>.megamenu form textarea:focus {
+	border-color:#FA023C
+}
+.pox li>.megamenu form input[type=submit]:hover {
+	background:#FA023C;
+	color:#fff
+}
+.pox li>.megamenu a:hover {
+	color:#FA023C
+}

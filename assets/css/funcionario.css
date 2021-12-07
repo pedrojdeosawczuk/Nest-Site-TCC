@@ -1,0 +1,47 @@
+body {
+	background: #ddd;
+}
+#alteracoes {
+    position: fixed;
+    _position:absolute;
+    _margin-bottom:0;
+    _margin-right:0;
+    right:0;
+    bottom:0;
+	background-color: #666;
+}
+#funcionarios {
+	width: 100%;
+}
+#funcionarios tr td{
+	width: 50%;
+}
+#funcionarios2 {
+	width: 30%;
+}
+.funcionario {
+	padding: 5px;
+	background-color: rgba(237, 243, 243, 1);
+	border: 2px solid  #02b8fa;
+}.funcionario a:link {
+	color: #02b8fa;
+	text-decoration: none;
+}.funcionario a:hover {
+	color: #02b8fa;
+	text-decoration: underline;
+}.funcionario a:active {
+	color: #0293c7;
+	text-decoration: underline;
+}.funcionario a:visited {
+	color: #02b8fa;
+	text-decoration: none;
+}.funcionario div {
+	color: #555;
+	/*
+	color: #999;
+	*/
+}
+
+.btnmostrar {
+	width: 50%;
+}

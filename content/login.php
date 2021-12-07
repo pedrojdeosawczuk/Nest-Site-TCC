@@ -21,7 +21,7 @@
 				$erro = "<div><span class=\"erro\">Informe sua Senha!</span></div>";
 			}
 			else {
-				require_once('system\connection.php');
+				//require_once('system\connection.php');
 				// $connection = mysql_connect("localhost", "root", "") or die ("<p>Sem conexão com o servidor, desculpe-nos o transtorno</p>");
 				// $select = mysql_select_db("bd_nest_site") or die("<p>Sem acesso ao DataBase, Entre em contato com os Administradores:<br> pedrojoaodeoliveira@gmail.com</p>");
 				$result = mysqli_query($connection, "SELECT * FROM `funcionario` WHERE `login_fun` = '$login' and `senha_fun` = '$senha'");

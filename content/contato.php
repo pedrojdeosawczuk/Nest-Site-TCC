@@ -7,7 +7,7 @@
 			$contatoerro = null;
 			$email_validar = null;
 		
-		require_once('system\connection.php');
+		//require_once('system\connection.php');
 		$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 4;");
 	
 		echo "<div id=\"contato\">";

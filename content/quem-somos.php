@@ -2,7 +2,7 @@
 	<link href="assets/css/quem-somos.css" rel="stylesheet" type="text/css">
 	<?php
 		//echo "Quem Somos";
-		require_once('system\connection.php');
+		//require_once('system\connection.php');
 		$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 3;");
 	
 		echo "<div id=\"quem_somos\">";

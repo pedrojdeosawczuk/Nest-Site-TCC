@@ -12,7 +12,7 @@
 	$bd = getenv("DATABASE");
 	
 	// Conecta no banco de dados MySql //
-	$connection = mysqli_connect($server, $user, $pass, $bd) or die (header('location:index.php?pg=erro/erro_500.php'));
+	$connection = mysqli_connect($server, $user, $pass) or die (header('location:index.php?pg=erro/erro_500.php'));
 	// Seleciona o banco de usado //
 	mysqli_select_db($connection, $bd) or die(header('location:index.php?pg=content/index.php'));
 ?>

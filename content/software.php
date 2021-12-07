@@ -3,7 +3,7 @@
 	<?php
 		//echo "Software";
 		
-		require_once('system\connection.php');
+		//require_once('system\connection.php');
 		$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 2;");
 	
 		echo "<div id=\"software\">";

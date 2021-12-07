@@ -3,7 +3,7 @@
 		<script type="text/javascript" src="assets/js/javascript.js"></script>
 	<?php
 		//echo "Index";
-		require_once('system\connection.php');
+		//require_once('system\connection.php');
 		
 		$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 1;");
 	

@@ -10,9 +10,9 @@ if (!$con) {
   die('Could not connect: ' . mysql_error($con));
 }
 
-$result = mysql_query("SELECT * FROM funcionario WHERE id_fun = '$q'");
+$result = mysqli_query($connection, "SELECT * FROM funcionario WHERE id_fun = '$q'");
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
 	$nulo = 1;
 	
 	$id_pesquisar = $row[0];

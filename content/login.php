@@ -1,13 +1,9 @@
-<div id="content">
-	<link href="assets/css/login.css" rel="StyleSheet" type="text/css">
-	<!-- TESTE -->
-	<!--
-	<?php
-		//echo "Login";
-	?>
-	-->
-	<!-- TESTE -->
-	<form method="post" action="">
+
+<div class="megamenu half-width login">
+<div class="row">
+<ul id="login" style="padding-left: 0px;">
+<li style="display: block;">
+	<form action="" method="post">
 	<?php
 		$erro = "vazio";
 		
@@ -40,16 +36,18 @@
 				}
 			}	
 		}
+		
 	?>
-		<input class="txt" id="login" name="login" placeholder="Usuário"/><br>
-		<input class="pass" id="senha" name="senha" placeholder="Senha" /><br>
-		<div>
+		<input type="text" name="login" placeholder="Usuário"/><br>
+		<input type="password" name="senha" placeholder="Senha" /><br>
 			<?php
 			if ($erro != "vazio") {
 				echo "$erro";
 			}
 			?>
-			<input id="btn_enviar" type="submit" name="enviar" value="Logar" />
-		</div>
+			<input type="submit" name="enviar" value="Logar" />
 	</form>
+</li>
+</ul>
+</div>
 </div>

@@ -346,7 +346,7 @@ html, body {
 .jetmenu li>.megamenu form {
 	width: 100%;
 }
-.megamenu form input[type=text], .megamenu form input[type=password], .megamenu form textarea {
+.megamenu form input[type=text], .megamenu form input[type=password], .megamenu form textarea, input[type=text], input[type=password], textarea {
 	padding: 5px;
 	color: #999;
 	background: #444;
@@ -365,13 +365,13 @@ html, body {
 	-o-transition: border .3s linear;
 	transition: border .3s linear;
 }
-.megamenu form input[type=text]:focus, .megamenu form input[type=password]:focus, .megamenu form textarea:focus {
+.megamenu form input[type=text]:focus, .megamenu form input[type=password]:focus, .megamenu form textarea:focus, input[type=text]:focus, input[type=password]:focus, textarea:focus {
 	border-color: #333;
 	/*
 	border-color: #e0e0e0;
 	*/
 }
-.megamenu form input[type=text], .megamenu form input[type=password], .megamenu form textarea {
+.megamenu form input[type=text], .megamenu form input[type=password], .megamenu textarea, input[type=text], input[type=password], .textarea {
 	width: 100%;
 	margin-top: 15px;
 }
@@ -393,10 +393,6 @@ html, body {
 	-moz-transition: background .3s linear;
 	-o-transition: background .3s linear;
 	transition: background .3s linear;
-}
-.megamenu form input[type=submit]:hover, input[type=submit]:hover {
-	background: #e0e0e0;
-	color: #555;
 }
 .megamenu .row {
 	width: 100%;
@@ -492,10 +488,10 @@ html, body {
 	background: #111;
 	color: #fff;
 }
-.black li>.megamenu form input[type=text]:focus, .black li>.megamenu form input[type=password]:focus, .black li>.megamenu form textarea:focus {
+.black input[type=text]:focus, .black input[type=password]:focus, .black textarea:focus {
 	border-color: #111;
 }
-.black li>.megamenu form input[type=submit]:hover, .black li> input[type=submit]:hover {
+.black input[type=submit]:hover, .black li> input[type=submit]:hover {
 	background: #111;
 	color: #fff;
 }
@@ -506,10 +502,10 @@ html, body {
 	background: #82837E;
 	color: #fff;
 }
-.grey li>.megamenu form input[type=text]:focus,.grey li>.megamenu form input[type=password]:focus,.grey li>.megamenu form textarea:focus {
+.grey input[type=text]:focus,.grey input[type=password]:focus,.grey textarea:focus {
 	border-color: #82837E;
 }
-.grey li>.megamenu form input[type=submit]:hover, .grey li> input[type=submit]:hover {
+.grey input[type=submit]:hover, .grey li> input[type=submit]:hover {
 	background: #82837E;
 	color: #fff;
 }
@@ -520,10 +516,10 @@ html, body {
 	background: #02b8fa;
 	color: #fff;
 }
-.blue li>.megamenu form input[type=text]:focus,.blue li>.megamenu form input[type=password]:focus,.blue li>.megamenu form textarea:focus {
+.blue input[type=text]:focus,.blue input[type=password]:focus,.blue textarea:focus {
 	border-color: #02b8fa;
 }
-.blue li>.megamenu form input[type=submit]:hover, .blue li> input[type=submit]:hover {
+.blue input[type=submit]:hover, .blue li> input[type=submit]:hover {
 	background: #02b8fa;
 	color: #fff;
 }
@@ -534,10 +530,10 @@ html, body {
 	background: #008C9E;
 	color: #fff;
 }
-.deeper li>.megamenu form input[type=text]:focus,.deeper li>.megamenu form input[type=password]:focus,.deeper li>.megamenu form textarea:focus {
+.deeper input[type=text]:focus,.deeper input[type=password]:focus,.deeper textarea:focus {
 	border-color: #008C9E;
 }
-.deeper li>.megamenu form input[type=submit]:hover, .deeper li> input[type=submit]:hover {
+.deeper input[type=submit]:hover, .deeper li> input[type=submit]:hover {
 	background: #008C9E;
 	color: #fff;
 }
@@ -548,10 +544,10 @@ html, body {
 	background: #88c425;
 	color: #fff;
 }
-.green li>.megamenu form input[type=text]:focus,.green li>.megamenu form input[type=password]:focus,.green li>.megamenu form textarea:focus {
+.green input[type=text]:focus,.green input[type=password]:focus,.green textarea:focus {
 	border-color: #88c425;
 }
-.green li>.megamenu form input[type=submit]:hover, .green li> input[type=submit]:hover {
+.green input[type=submit]:hover, .green li> input[type=submit]:hover {
 	background: #88c425;
 	color: #fff;
 }
@@ -562,10 +558,10 @@ html, body {
 	background: #2ecc71;
 	color: #fff;
 }
-.emerald li>.megamenu form input[type=text]:focus,.emerald li>.megamenu form input[type=password]:focus,.emerald li>.megamenu form textarea:focus {
+.emerald input[type=text]:focus,.emerald input[type=password]:focus,.emerald textarea:focus {
 	border-color: #2ecc71;
 }
-.emerald li>.megamenu form input[type=submit]:hover, .emerald li> input[type=submit]:hover {
+.emerald input[type=submit]:hover, .emerald li> input[type=submit]:hover {
 	background: #2ecc71;
 	color: #fff;
 }
@@ -576,10 +572,10 @@ html, body {
 	background: #C21A01;
 	color: #fff;
 }
-.red li>.megamenu form input[type=text]:focus,.red li>.megamenu form input[type=password]:focus,.red li>.megamenu form textarea:focus {
+.red input[type=text]:focus,.red input[type=password]:focus,.red textarea:focus {
 	border-color: #C21A01;
 }
-.red li>.megamenu form input[type=submit]:hover, .red li> input[type=submit]:hover {
+.red input[type=submit]:hover, .red li> input[type=submit]:hover {
 	background: #C21A01;
 	color: #fff;
 }
@@ -590,10 +586,10 @@ html, body {
 	background: #FA023C;
 	color: #fff;
 }
-.pox li>.megamenu form input[type=text]:focus,.pox li>.megamenu form input[type=password]:focus,.pox li>.megamenu form textarea:focus {
+.pox input[type=text]:focus,.pox input[type=password]:focus, .pox textarea:focus {
 	border-color: #FA023C;
 }
-.pox li>.megamenu form input[type=submit]:hover, .pox li> input[type=submit]:hover {
+.pox input[type=submit]:hover, .pox li> input[type=submit]:hover {
 	background: #FA023C;
 	color: #fff;
 }
@@ -604,10 +600,10 @@ html, body {
 	background: #ff670f;
 	color: #fff;
 }
-.orange li>.megamenu form input[type=text]:focus,.orange li>.megamenu form input[type=password]:focus,.orange li>.megamenu form textarea:focus {
+.orange input[type=text]:focus,.orange input[type=password]:focus,.orange textarea:focus {
 	border-color: #ff670f;
 }
-.orange li>.megamenu form input[type=submit]:hover, .orange li> input[type=submit]:hover {
+.orange input[type=submit]:hover, .orange li> input[type=submit]:hover {
 	background: #ff670f;
 	color: #fff;
 }
@@ -618,10 +614,10 @@ html, body {
 	background: #D46D22;
 	color: #fff;
 }
-.sunburst li>.megamenu form input[type=text]:focus,.sunburst li>.megamenu form input[type=password]:focus,.sunburst li>.megamenu form textarea:focus {
+.sunburst input[type=text]:focus,.sunburst input[type=password]:focus,.sunburst textarea:focus {
 	border-color: #D46D22;
 }
-.sunburst li>.megamenu form input[type=submit]:hover, .sunburst li> input[type=submit]:hover {
+.sunburst input[type=submit]:hover, .sunburst li> input[type=submit]:hover {
 	background: #D46D22;
 	color: #fff;
 }
@@ -632,10 +628,10 @@ html, body {
 	background: #febf01;
 	color: #222;
 }
-.yellow li>.megamenu form input[type=text]:focus,.yellow li>.megamenu form input[type=password]:focus,.yellow li>.megamenu form textarea:focus {
+.yellow input[type=text]:focus,.yellow input[type=password]:focus,.yellow textarea:focus {
 	border-color: #febf01;
 }
-.yellow li>.megamenu form input[type=submit]:hover, .yellow li> input[type=submit]:hover {
+.yellow input[type=submit]:hover, .yellow li> input[type=submit]:hover {
 	background: #febf01;
 	color: #222;
 }
@@ -646,10 +642,10 @@ html, body {
 	background: #a849a3;
 	color: #fff;
 }
-.purple li>.megamenu form input[type=text]:focus,.purple li>.megamenu form input[type=password]:focus,.purple li>.megamenu form textarea:focus {
+.purple input[type=text]:focus,.purple input[type=password]:focus,.purple textarea:focus {
 	border-color: #a849a3;
 }
-.purple li>.megamenu form input[type=submit]:hover, .purple li> input[type=submit]:hover {
+.purple input[type=submit]:hover, .purple li> input[type=submit]:hover {
 	background: #a849a3;
 	color: #fff;
 }
@@ -660,10 +656,10 @@ html, body {
 	background: #F56991;
 	color: #fff;
 }
-.pink li>.megamenu form input[type=text]:focus,.pink li>.megamenu form input[type=password]:focus,.pink li>.megamenu form textarea:focus {
+.pink input[type=text]:focus,.pink input[type=password]:focus,.pink textarea:focus {
 	border-color: #F56991;
 }
-.pink li>.megamenu form input[type=submit]:hover, .pink li> input[type=submit]:hover {
+.pink input[type=submit]:hover, .pink li> input[type=submit]:hover {
 	background: #F56991;
 	color: #fff;
 }
@@ -892,6 +888,10 @@ body footer {
 	background-color: #666;
 }
 
+form {
+	margin: 0;
+}
+
 #alterar2 {
 	margin: 10px;
 }
@@ -903,16 +903,25 @@ body footer {
 	float: left;
 	width: 75px;
 }
-
-.btnmostrar {
-	width: 100% !important ;
-	margin: 0 !important;
+.editar form div{
+	width: 500px;
 }
 .editar {
 	position: fixed;
 	bottom: 0;
 	right: 0;
+	width: auto;
 }
-.megamenu input.btnmostrar {
+.btnmostrar {
 	width: 100% !important;
+	margin: 0 !important;
+	/*
+	border-radius: 10px 10px!important;
+	*/
+}
+.btnmostrar .megamenu {
+	border-top: 0;
+}
+.erro {
+	color: #FA023C;
 }

@@ -6,7 +6,7 @@
 
 	$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 4;");
 	
-	while ($row = mysqli_fetch_row($result)) {
+	while ($row = mysqli_fetch_row($result)):
 		$titulo = $row[1];
 		$subtitulo = $row[2];
 		$img = $row[3];
@@ -14,69 +14,66 @@
 		
 		echo "<output class=\"pagetitulo\">$titulo</output></br>";
 		echo "<output class=\"pagesubtitulo\">$subtitulo</output></br>";
-		if ($img != null) {
+		if ($img != null):
 			echo "<img class=\"pageimg\" src=\"$img\">";
-		}
+		endif;
 		echo "<p><div class=\"pageconteudo\">$conteudo</div></p>";
-	}
+	endwhile;
 	
-	if ((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)) {
+	if ((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)):
 		$prioridade = $_SESSION['prioridade'];
 		
-		if ($prioridade == 0 or $prioridade == 1) {
-			if (isset($_POST['enviar'])) {
+		if ($prioridade == 0 or $prioridade == 1):
+			if (isset($_POST['enviar'])):
 				$titulo = $_POST['titulo'];
 				$subtitulo = $_POST['subtitulo'];
 				$imagem = $_POST['imagem'];
 				$conteudo = $_POST['conteudo'];
-				if($titulo == null) {
+				if($titulo == null):
 					$editarerro = "<div><span class=\"erro\">Informe o Titulo!</span></div>";
-				}
-				else if($subtitulo == null) {
+				elseif($subtitulo == null):
 					$editarerro = "<div><span class=\"erro\">Informe o Subtitulo!</span></div>";
-				}
-				else if($conteudo == null) {
+				elseif($conteudo == null):
 					$editarerro = "<div><span class=\"erro\">Informe o Conteúdo!</span></div>";
-				}
-				else {
+				else:
 					$result = mysqli_query($connection, "UPDATE `pagina` SET `id_pagina` = 4,`titulo_1` = '$titulo',`sub_titulo_1` = '$subtitulo',`imagem_1` = '$imagem',`paragrafo_1` = '$conteudo' WHERE `id_pagina` = 4;");
 					header('location:index.php?pg=content/contato.php');
-				}
-			}
-			echo "<div class=\"editar\">";
-			echo "<div class=\"$color\">";
-			echo "<li style=\"display: block;\">";
-			echo "<input class=\"btnmostrar\" Onclick=\"$( '#item1' ).slideToggle();\" type=\"submit\" value=\"▲Editar Conteúdo da Página\"/>";
-			echo "<div class=\"megamenu half-width\">";
-			echo "<div class=\"row\">";
+				endif;
+			endif;
+			?>
 
-			echo "	<form id=\"form\" method=\"post\" action=\"\">";
-			echo "		<div id=\"item1\" style=\"display:none;\">";
-			echo "			<input class=\"titulo\" type=\"text\" name=\"titulo\" placeholder=\"Titulo\" value=\"$titulo\" />";
-			echo "			<input class=\"subtitulo\" type=\"text\" name=\"subtitulo\" placeholder=\"Subtitulo\" value=\"$subtitulo\" />";
-			echo "			<input class=\"imagem\" type=\"text\" name=\"imagem\" placeholder=\"Imagem\" value=\"$img\" />";
-			echo "			<textarea class=\"text\" type=\"text\" name=\"conteudo\" placeholder=\"Conteúdo\" rows=\"8\">$conteudo</textarea>";
-			if ($erro !="vazia") {
-				echo "$editarerro";
-			}
-			echo "			<input class=\"btnenviar\" type=\"submit\" name=\"enviar\" value=\"Enviar\" />";
-			echo "		</div>";
-			echo "	</form>";
-			
-			echo "</div>";
-			echo "</div>";
-			echo "</li>";
-			echo "</div>";
-			echo "</div>";
-		}
-	}
-	else {
-		//$infonotificacao = null;
+			<div class="editar <?php echo "$color"; ?>">
+				<input class="btnmostrar" Onclick="$('#item1').slideToggle();" type="submit" value=" Conteúdo "/>
+				<form method="post" action="">
+					<li style="display:block;">
+						<div class="megamenu half-width" id="item1" style="display:none;">
+							<div class="row">
+								<input class="titulo" type="text" name="titulo" placeholder="Titulo" value="<?php echo "$titulo"; ?>"/></br>
+								<input class="subtitulo" type="text" name="subtitulo" placeholder="Subtitulo" value="<?php echo "$subtitulo"; ?>"/></br>
+								<input class="imagem" type="text" name="imagem" placeholder="Imagem" value="<?php echo "$img"; ?>" /></br>
+								<textarea class="text" type="text" name="conteudo" placeholder="Conteúdo" rows="8"><?php echo "$conteudo"; ?></textarea>
+
+								<?php
+									if ($erro !="vazia"):
+										echo "$editarerro";
+									endif;
+								?>
+								
+								<input class="btnenviar" type="submit" name="enviar" value="Enviar"/>
+							</div>
+						</div>
+					</li>
+				</form>
+			</div>
+
+			<?php
+		endif;
+	else:
 		$contato	= null;
-		if(isset($_POST['falar'])){
+		if(isset($_POST['falar'])):
 			require_once "PHPMailer/class.phpmailer.php";
 			require_once "PHPMailer/class.smtp.php";
-			require_once('system\smtp.php');
+			require_once('system/smtp.php');
 
 			$empresa	= "Grupo Nest";
 			$mensagem	= null;
@@ -146,16 +143,18 @@
 				//$mail->AddAttachment($arquivo_temporario,$arquivo);
 				$mail->Body = $cabecalho.$mensagem2;
 				
+				// Insere no banco de dados a mensagem de contato
+				$result = mysqli_query($connection, "INSERT INTO `mensagem`(`id_msg`, `nome_msg`, `email_msg`, `tema_msg`, `mensagem_msg`) VALUES ('', '$nome', '$email', '$assunto', '$mensagem');");
+				
 				if ($mail->Send()):
-					//se mandou email cadastra no banco
-					$result = mysqli_query($connection, "INSERT INTO `mensagem`(`id_msg`, `nome_msg`, `email_msg`, `tema_msg`, `mensagem_msg`) VALUES ('', '$nome', '$email', '$assunto', '$mensagem');");
+					//Se mandou email cadastra no banco
 					$contato = "Mensagem enviada com sucesso!";
 				else:
-					//se nao mandou mostra mensagem de erro
+					//Se não mandou mostra mensagem de erro
 					$contato = "Erro \"".$mail->ErrorInfo."\", mensagem não pode ser enviada!";
 				endif;
 			endif; //empty arquivo
-		}
+		endif;
 		echo "<center>";
 		echo "<div class=\"$color\">";
 		echo "<li style=\"display: block;\">";
@@ -170,24 +169,23 @@
 		//}
 		echo "	";
 		echo "	<textarea class=\"text\" type=\"text\" name=\"mensagem\" rows=\"8\" placeholder=\"Mensagem\"></textarea>";
-		echo "	<div>";
 		if ($contato != null):
 			echo "<label>";
 			echo "$contato";
 			echo "</label>";
+			/*
 		elseif ($erro != null):
 			echo $erro;
+			*/
 		else:
 			echo "";
 		endif;
-		
 		echo "		<input class=\"btnfalar\" type=\"submit\" name=\"falar\" value=\"Enviar\" />";
-		echo "	</div>";
 		echo "</form>";
 		echo "</div>";
 		echo "</div>";
 		echo "</li>";
 		echo "</div>";
 		echo "</center>";
-	}
+	endif;
 ?>

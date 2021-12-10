@@ -1,49 +1,34 @@
-<div class="content">
-	<meta name="robots" content="noindex">
-	<meta name="googlebot" content="noindex">
-	<link type="text/css" rel="StyleSheet" href="assets/css/notificacao.css">
-	<?php
-	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)) {
+<?php
+	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)):
 		unset($_SESSION['nome']);
 		unset($_SESSION['login']);
 		unset($_SESSION['senha']);
 		unset($_SESSION['prioridade']);
 		
 		header('location:index.php?pg=content/login.php');
-	}
+	endif;
 	$prioridade = $_SESSION['prioridade'];
 	
-	if ($prioridade == 0 or $prioridade == 2) {
-	/*
-	$con = mysql_connect("localhost", " root", "") or die (header('location:index.php?pg=erro/erro_500.php'));
-	$select = mysql_select_db("bd_nest_site") or die(header('location:index.php?pg=content/login.php'));
-	*/
-	$result = mysqli_query($connection, "SELECT * FROM `mensagem`");
-		
-		$sms_all = 0;
-		while ($sms = mysqli_fetch_array($result)) {
-			$sms_all = $sms_all + 1;
-		}
-		
-		/*
-		$con = mysql_connect("localhost", " root", "") or die (header('location:index.php?pg=erro/erro_500.php'));
-		$select = mysql_select_db("bd_nest_site") or die(header('location:index.php?pg=content/login.php'));
-		*/
+	if ($prioridade == 0 or $prioridade == 2):
 		$result = mysqli_query($connection, "SELECT * FROM `mensagem`");
-	?>
-		<br>
-		<br>
-		<br>
-		<br>
+
+		$sms_all = 0;
+		while ($sms = mysqli_fetch_array($result)):
+			$sms_all = $sms_all + 1;
+		endwhile;
+?>
 		<div id="notificacao">
 		<label id="title_menssage">Mensagens (<?php echo $sms_all; ?>)</label>
 		<?php
-		if ($sms_all==0) {
+			if ($sms_all==0):
 		?>
-		<p><?php echo $nome; ?>, Sem mensagens recebidas recentemente, ou todas as mensagens foram apagadas do banco de dados!</p>
+			<p><?php echo $nome; ?>, Sem mensagens recebidas recentemente, ou todas as mensagens foram apagadas do banco de dados!</p>
 		<?php
-		}
-		while ($sql = mysqli_fetch_array($result)) {
+			endif;
+
+		$result = mysqli_query($connection, "SELECT * FROM `mensagem`");
+			
+		while ($sql = mysqli_fetch_array($result)):
 			echo "<p>";
 			$sms_all = $sms_all + 1;
 		
@@ -66,28 +51,28 @@
 				</div>
 			</p>
 		<?php
-		}
+		endwhile;
 		?>
 		</div>
 		<?php
-		if ((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)) {
+		if ((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)):
 			$prioridade = $_SESSION['prioridade'];
 			
-			if (isset($_POST['excluir'])) {
+			if (isset($_POST['excluir'])):
 				$id = $_POST['id'];
-				if($id == "") {
+				if($id == ""):
 					$erro = "<div><span class=\"erro\">Informe o Código da mensagem!</span></div>";
-				}
-				else {
+				else:
 					$result = mysqli_query($connection, "DELETE FROM `mensagem` WHERE `id_msg` = '$id';");
 					header('location:index.php?pg=authenticate/notificacao.php');
-				}
-			}
+				endif;
+			endif;
+
 			$contato	= null;
-			if(isset($_POST['enviar'])){
+			if(isset($_POST['enviar'])):
 				require_once "PHPMailer/class.phpmailer.php";
 				require_once "PHPMailer/class.smtp.php";
-				require_once('system/smtp.php')
+				require_once('system/smtp.php');
 				
 				$empresa	= "Grupo Nest";
 				$mensagem	= null;
@@ -107,7 +92,8 @@
 				if (empty($nome)):
 					$erro = "<span class=\"erro\">Digite um nome</span>";
 				else
-				*/if (empty($email)):
+				*/
+				if (empty($email)):
 					$erro = "<span class=\"erro\">Digite um email</span>";
 				elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)):
 					$erro = "<span class=\"erro\">E-mail invalido</span>";
@@ -169,52 +155,54 @@
 						$contato = "Erro \"".$mail->ErrorInfo."\", mensagem não pode ser enviada!";
 					endif;
 				endif; //empty arquivo
-			}
+			endif;
 			?>
-			<div class="editar">
-				<a href="#"><input class="btnmostrar" Onclick="$( '#item2' ).slideToggle(); $( '#item1' ).slideUp();" type="submit" value="Enviar E-mail" /></a>
-				<a href="#"><input class="btnmostrar" Onclick="$( '#item2' ).slideUp(); $( '#item1' ).slideToggle();" type="submit" value="Excluir" /></a>
-				<form method="post" action="">
-					<div id="item1" style="display:none;">
-						<input class="text" name="id" placeholder="Id"/></br>
-						<div>
-		<?php
-			if ($erro != null):
-				echo "$erro";
-			endif;
-		?>
-							<input class="btnenviar" type="submit" name="excluir" value="Excluir" />
+			<div class="editar <?php echo "$color"; ?>">
+				<input class="btnmostrar" Onclick="$( '#item2' ).slideToggle(); $( '#item1' ).slideUp();" type="submit" value="Enviar E-mail"/>
+				<input class="btnmostrar" Onclick="$( '#item2' ).slideUp(); $( '#item1' ).slideToggle();" type="submit" value="Excluir"/>
+				<li style="display:block;">
+					<div class="megamenu half-width" id="item1" style="display:none;">
+						<div class="row">
+							<form method="post" action="">
+								<input class="text" type="text" name="id" placeholder="Id"/></br>
+								<?php
+									if ($erro != null):
+										echo "$erro";
+									endif;
+								?>
+								<input class="btnenviar" type="submit" name="excluir" value="Excluir" />
+							</form>
 						</div>
 					</div>
-				</form>
-				<form id="form" method="post" action="">
-					<div id="item2" style="display:none;">
-						<input class="text" name="email" placeholder="Para" /></br>
-						<input class="text" name="assunto" placeholder="Assunto" /></br>
-						<textarea class="text" name="mensagem" rows="8" placeholder="Mensagem"></textarea>
-						<!--<input class="text" type="file" name="arquivo" />-->
-						<div>
-		<?php
-			if ($contato != null):
-				echo "<label>";
-				echo "$contato";
-				echo "</label>";
-			elseif ($erro != null):
-				echo $erro;
-			else:
-				echo "";
-			endif;
-		?>
-							<input class="btnenviar" type="submit" name="enviar" value="Enviar" />
+				</li>
+				<li style="display:block;">
+					<div class="megamenu half-width" id="item2" style="display:none;">
+						<div class="row">
+							<form id="form" method="post" action="">
+								<input class="text" type="text" name="email" placeholder="Para" /></br>
+								<input class="text" type="text" name="assunto" placeholder="Assunto" /></br>
+								<textarea class="text" name="mensagem" rows="8" placeholder="Mensagem"></textarea>
+								<!--<input class="text" type="file" name="arquivo" />-->
+								<?php
+									if ($contato != null):
+										echo "<label>";
+										echo "$contato";
+										echo "</label>";
+									elseif ($erro != null):
+										echo $erro;
+									else:
+										echo "";
+									endif;
+								?>
+								<input class="btnenviar" type="submit" name="enviar" value="Enviar" />
+							</form>
 						</div>
 					</div>
-				</form>
+				</li>
 			</div>
 		<?php
-		}
-	}
-	else {
+		endif;
+	else:
 		header('location:authenticate/logout.php');
-	}
-	?>
-</div>
+	endif;
+?>

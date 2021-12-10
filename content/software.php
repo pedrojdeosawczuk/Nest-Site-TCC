@@ -39,23 +39,33 @@
 					header('location:index.php?pg=content/software.php');
 				}
 			}
-			echo "<div class=\"editar\">";
-			echo "	<a href=\"#\"><input class=\"btnmostrar\" Onclick=\"$( '#item1' ).slideToggle();\" type=\"submit\" value=\"Conteúdo\" /></a>";
-			echo "	<form id=\"form\" method=\"post\" action=\"\">";
-			echo "		<div id=\"item1\" style=\"display:none;\">";
-			echo "			<input class=\"titulo\" type=\"text\" name=\"titulo\" placeholder=\"Titulo\" value=\"$titulo\" /></br>";
-			echo "			<input class=\"subtitulo\" type=\"text\" name=\"subtitulo\" placeholder=\"Subtitulo\" value=\"$subtitulo\" /></br>";
-			echo "			<input class=\"imagem\" type=\"text\" name=\"imagem\" placeholder=\"Imagem\" value=\"$img\" /></br>";
-			echo "			<textarea class=\"text\" type=\"text\" name=\"conteudo\" placeholder=\"Conteúdo\" rows=\"8\">$conteudo</textarea></br>";
-			//echo "		<div>";
-			if ($erro != null) {
-				echo "$erro";
-			}
-			echo "			<input class=\"btnenviar\" type=\"submit\" name=\"enviar\" value=\"Enviar\" />";
-			//echo "		</div>";
-			echo "		</div>";
-			echo "	</form>";
-			echo "</div>";
+			?>
+
+			<div class="editar <?php echo "$color"; ?>">
+				<input class="btnmostrar" Onclick="$('#item1').slideToggle();" type="submit" value=" Conteúdo "/>
+				<form id="form" method="post" action="">
+					<li style="display: block;">
+						<div class="megamenu half-width" id="item1" style="display:none;">
+							<div class="row">
+								<input class="titulo" type="text" name="titulo" placeholder="Titulo" value="<?php echo "$titulo"; ?>"/>
+								<input class="subtitulo" type="text" name="subtitulo" placeholder="Subtitulo" value="<?php echo "$subtitulo"; ?>"/>
+								<input class="imagem" type="text" name="imagem" placeholder="Imagem" value="<?php echo "$img"; ?>" />
+								<textarea class="text" type="text" name="conteudo" placeholder="Conteúdo" rows="8"><?php echo "$conteudo"; ?></textarea>
+								
+								<?php
+									if ($erro != null):
+										echo "$erro";
+									endif;
+								?>
+
+								<input class="btnenviar" type="submit" name="enviar" value="Enviar" />
+							</div>
+						</div>
+					</li>
+				</form>
+			</div>
+
+			<?php
 		}
 	}
 ?>

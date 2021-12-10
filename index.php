@@ -19,7 +19,7 @@
 	$prioridade1 = null;
 	$bemvindo = null;
 	$erro = null;
-	$color = "black";
+	$color = "blue";
 
 	function getGet($key){
 		return isset( $_GET[$key] ) ? $_GET[$key] : null;

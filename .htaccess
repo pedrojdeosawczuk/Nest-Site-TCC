@@ -4,10 +4,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ Nest/index.php?pg=erro/erro_404 [L,QSA]
 
-ErrorDocument 401 http://localhost.com.br/erro/401.php
-ErrorDocument 403 http://localhost.com.br/erro/403.php
-ErrorDocument 404 http://localhost.com.br/erro/404.php
-ErrorDocument 500 http://localhost.com.br/erro/500.php
+ErrorDocument 401 https://nestsitetcc.herokuapp.com/erro/401.php
+ErrorDocument 403 https://nestsitetcc.herokuapp.com/erro/403.php
+ErrorDocument 404 https://nestsitetcc.herokuapp.com/erro/404.php
+ErrorDocument 500 https://nestsitetcc.herokuapp.com/erro/500.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On

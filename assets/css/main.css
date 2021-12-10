@@ -814,9 +814,10 @@ body footer {
     background-color: #e4e4e4;
 	*/
 	color: #999;
-    text-align: left;
     line-height: 17px;
-
+	/*
+	border-radius: 10px 10px!important;
+	*/
 }
 /* ----- Scrollbar ----- */
 ::-webkit-scrollbar-thumb:vertical {

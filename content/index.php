@@ -1,8 +1,4 @@
 <?php
-	/*
-	<link type="text/css" rel="StyleSheet" href="assets/css/index2.css">
-	<script type="text/javascript" src="assets/js/javascript.js"></script>
-	*/
 	$result = mysqli_query($connection, "SELECT * FROM pagina WHERE id_pagina = 1;");
 	
 	while ($row = mysqli_fetch_row($result)):
@@ -49,7 +45,7 @@
 							<div class="row">
 								<input class="titulo" type="text" name="titulo" placeholder="Titulo" value="<?php echo "$titulo"; ?>"/></br>
 								<input class="subtitulo" type="text" name="subtitulo" placeholder="Subtitulo" value="<?php echo "$subtitulo"; ?>"/></br>
-								<input class="imagem" type="text" name="imagem" placeholder="Imagem" value="<?php echo "$img"; ?>" /></br>
+								<input class="imagem" type="text" name="imagem" placeholder="Imagem" value="<?php echo "$img"; ?>"/></br>
 								<textarea class="text" type="text" name="conteudo" placeholder="Conteúdo" rows="8"><?php echo "$conteudo"; ?></textarea>
 
 								<?php

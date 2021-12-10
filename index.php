@@ -25,21 +25,20 @@
 		return isset( $_GET[$key] ) ? $_GET[$key] : null;
 	}
 	$pg = getGet('pg');
-	if ($pg == null) {
+	if ($pg == null):
 		$pg = "content/index.php";
-	}
-	else if ($pg != 'content/index.php'
+	elseif ($pg != 'content/index.php'
 	 || $pg != 'content/software.php'
 	 || $pg != 'content/quem-somos.php'
 	 || $pg != 'content/contato.php'
 	 || $pg != 'content/login.php'
 	 || $pg != 'authenticate/user.php'
 	 || $pg != 'authenticate/funcionario.php'
-	 || $pg != 'authenticate/notificacao.php') {
-	}
-	else {
+	 || $pg != 'authenticate/notificacao.php'):
+	else:
 		$pg = "erro/erro_404.php";
-	}
+	endif;
+
 	$content = is_file( $pg.'.php' ) ? $pg.'.php' : $pg;
 	
 	$indexpage = "offpage";
@@ -52,35 +51,27 @@
 	$adminpage = "offpage";
 	$userpage = "offpage";
 	
-	if ($pg == "content/index.php" && $content == "content/index.php") {
+	if ($pg == "content/index.php" && $content == "content/index.php"):
 		$indexpage = "active";
-	}
-	else if ($pg == "content/software.php" && $content == "content/software.php") {
+	elseif ($pg == "content/software.php" && $content == "content/software.php"):
 		$softwarepage = "active";
-	}
-	else if ($pg == "content/quem-somos.php" && $content == "content/quem-somos.php") {
+	elseif ($pg == "content/quem-somos.php" && $content == "content/quem-somos.php"):
 		$quemsomospage = "active";
-	}
-	else if ($pg == "content/contato.php" && $content == "content/contato.php") {
+	elseif ($pg == "content/contato.php" && $content == "content/contato.php"):
 		$contatopage = "active";
-	}
-	else if ($pg == "content/login.php" && $content == "content/login.php") {
+	elseif ($pg == "content/login.php" && $content == "content/login.php"):
 		$loginpage = "active";
-	}
-	else if ($pg == "authenticate/notificacao.php" && $content == "authenticate/notificacao.php") {
+	elseif ($pg == "authenticate/notificacao.php" && $content == "authenticate/notificacao.php"):
 		$adminpage = "active";
-	}
-	else if ($pg == "authenticate/funcionario.php" && $content == "authenticate/funcionario.php") {
+	elseif ($pg == "authenticate/funcionario.php" && $content == "authenticate/funcionario.php"):
 		$adminpage = "active";
-	}
-	else if ($pg == "authenticate/user.php" && $content == "authenticate/user.php") {
+	elseif ($pg == "authenticate/user.php" && $content == "authenticate/user.php"):
 		$userpage = "active";
-	}
-	else {
-	}
+	else:
+	endif;
 	
 	session_start();
-	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)) {
+	if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)):
 		unset($_SESSION['nome']);
 		unset($_SESSION['login']);
 		unset($_SESSION['senha']);
@@ -95,38 +86,35 @@
 					<form action=\"\" method=\"post\">
 		";
 		
-		if(isset($_POST['enviar'])){
+		if (isset($_POST['enviar'])):
 			$login = $_POST['login'] = preg_replace('/[^[:alpha:]_]/', '',$_POST['login']);
 			$senha = $_POST['senha'] = preg_replace('/[^[:alpha:]_]/', '',$_POST['senha']);
-			if($login == "") {
+			if ($login == ""):
 				$erro = "<div><span class=\"erro\">Informe seu Usuário!</span></div>";
-			}
-			else if($senha == "") {
+			elseif ($senha == ""):
 				$erro = "<div><span class=\"erro\">Informe sua Senha!</span></div>";
-			}
-			else {
+			else:
 				$result = mysqli_query($connection, "SELECT * FROM `funcionario` WHERE `login_fun` = '$login' and `senha_fun` = '$senha' and `status_fun` = 0");
 			
-				if(mysqli_num_rows($result) != "") {
+				if (mysqli_num_rows($result) != ""):
 			
-					while ($sql = mysqli_fetch_array($result)) {
+					while ($sql = mysqli_fetch_array($result)):
 						$_SESSION['nome'] = $sql[1];
 						$_SESSION['login'] = $sql[2];
 						$_SESSION['senha'] = $sql[3];
 						$_SESSION['prioridade'] = $sql[4];
 						header('location:index.php?pg=authenticate/user.php');
-					}
-				}
-				else {
+					endwhile;
+
+				else:
 					$erro = "<div><span class=\"erro\">Usuário não existe!</span></div>";
-				}
-			}
-			if ($erro != null) {
-			}
-			else {
+				endif;
+			endif;
+			if ($erro != null):
+			else:
 				$erro = null;
-			}
-		}
+			endif;
+		endif;
 		$menulogin2 = "
 					<input type=\"text\" class=\"text\" name=\"login\" placeholder=\"Usuário\">
 					<input type=\"password\" class=\"pass\" name=\"senha\" placeholder=\"Senha\" >
@@ -135,14 +123,13 @@
 					</form>
 				</div>
 			</div>
-		</li>";				
-	}
-	else {
+		</li>";
+	else:
 		$nome = $_SESSION['nome'];
 		$prioridade = $_SESSION['prioridade'];
 		
 		$prioridade1 = null;
-		if ($prioridade == 1 or $prioridade == 3) {
+		if ($prioridade == 1 or $prioridade == 3):
 			$bemvindo = "
 			<li class=\"right fix-sub\" id=\"$userpage\" style=\"\">
 				<a class=\"$userpage\" href=\"#\">Bem-Vindo(a) $nome</a>
@@ -155,8 +142,7 @@
 					</li>
 				</ul>
 			</li>";
-		}
-		else if ($prioridade == 0 or $prioridade == 2) {
+		elseif ($prioridade == 0 or $prioridade == 2):
 			$bemvindo = "
 			<li class=\"right fix-sub\" id=\"$userpage\" style=\"\">
 				<a class=\"$userpage\" href=\"#\">Bem-Vindo(a) $nome</a>
@@ -181,11 +167,10 @@
 					</li>
 				</ul>
 			</li>";
-		}
-		else {
+		else:
 			$prioridade1 = "";
-		}
-	}
+		endif;
+	endif;
 	
 	$menu = "
 	<ul id=\"jetmenu\" style=\"display: block;\" class=\"jetmenu $color\">
@@ -218,29 +203,38 @@
 		$bemvindo
 	</ul>";
 	?>
+
 </head>
 <body>
 	<div class="content">
 		<footer>
-			<a id="logo" href="index.php?pg=content/index.php"></a>
-			Nest Group Copyright &copy; - Todos Os direitos Reservados.
+			Having issues with this website? Open a issue on <a id="logo" href="https://github.com/pedrojdeosawczuk/Nest-Site-TCC">GitHub</a>.</br>
+			Made by <a id="logo" href="https://github.com/pedrojdeosawczuk">Pedro</a> and <a id="logo" href="https://github.com/Hugo-benjamim">Hugo</a> with ❤️
 		</footer>
+
 		<?php
 			echo "$menu";
 			echo "<div class=\"body-content\">";
 			include_once($content);
 			echo "</div>";
 		?>
+
 	</div>
+
 <?php
-	if($content == "content/index.php") {
-		echo "	<link type=\"text/css\" rel=\"StyleSheet\" href=\"assets/slider/css/sldshw.css\">";
-		echo "	<link type=\"text/css\" rel=\"StyleSheet\" href=\"assets/slider/css/supersized.css\">";
-		echo "	<script type=\"text/javascript\" src=\"assets/slider/js/sldshw.js\"></script>";
-		echo "	<script src=\"assets/slider/js/supersized.3.2.7.min.js\"></script>";
-		echo "	<script src=\"assets/slider/js/supersized-init.js\"></script>";
-	}
+	if($content == "content/index.php"):
+		?>
+
+		<link type="text/css" rel="StyleSheet" href="assets/slider/css/sldshw.css">
+		<link type="text/css" rel="StyleSheet" href="assets/slider/css/supersized.css">
+		<script type="text/javascript" src="assets/slider/js/sldshw.js"></script>
+		<script src="assets/slider/js/supersized.3.2.7.min.js"></script>
+		<script src="assets/slider/js/supersized-init.js"></script>
+		
+		<?php
+	endif;
 ?>
+
 </body>
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.cookie.js"></script>

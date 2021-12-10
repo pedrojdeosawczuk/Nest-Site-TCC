@@ -54,7 +54,7 @@
 								<textarea class="text" type="text" name="conteudo" placeholder="Conteúdo" rows="8"><?php echo "$conteudo"; ?></textarea>
 
 								<?php
-									if ($erro !="vazia"):
+									if ($editarerro == null):
 										echo "$editarerro";
 									endif;
 								?>
@@ -69,7 +69,6 @@
 			<?php
 		endif;
 	else:
-		$contato	= null;
 		if(isset($_POST['falar'])):
 			require_once "PHPMailer/class.phpmailer.php";
 			require_once "PHPMailer/class.smtp.php";
@@ -97,8 +96,6 @@
 				$erro = "<span class=\"erro\">E-mail invalido</span>";
 			elseif (empty($assunto)):
 				$erro = "<span class=\"erro\">Digite um assunto</span>";
-			elseif (empty($mensagem)):
-				$erro = "<span class=\"erro\">Digite uma mensagem</span>";
 			elseif (empty($mensagem)):
 				$erro = "<span class=\"erro\">Digite uma mensagem</span>";
 			else:
@@ -148,44 +145,42 @@
 				
 				if ($mail->Send()):
 					//Se mandou email cadastra no banco
-					$contato = "Mensagem enviada com sucesso!";
+					//$contatoerro = "Mensagem enviada com sucesso!";
 				else:
 					//Se não mandou mostra mensagem de erro
-					$contato = "Erro \"".$mail->ErrorInfo."\", mensagem não pode ser enviada!";
+					$contatoerro = "Erro \"".$mail->ErrorInfo."\", mensagem não pode ser enviada!";
 				endif;
 			endif; //empty arquivo
 		endif;
-		echo "<center>";
-		echo "<div class=\"$color\">";
-		echo "<li style=\"display: block;\">";
-		echo "<div class=\"megamenu half-width\">";
-		echo "<div class=\"row\">";
-		echo "<form method=\"post\" action=\"\">";
-		echo "	<input id=\"nome\" type=\"text\" name=\"nome\" placeholder=\"Nome\"/>";
-		echo "	<input id=\"email\" type=\"text\" name=\"email\" placeholder=\"E-mail\"/>";
-		echo "	<input id=\"assunto\" type=\"text\" name=\"assunto\" placeholder=\"Assunto\"/>";
-		//if ($infonotificacao != null) {
-		//	echo "$infonotificacao";
-		//}
-		echo "	";
-		echo "	<textarea class=\"text\" type=\"text\" name=\"mensagem\" rows=\"8\" placeholder=\"Mensagem\"></textarea>";
-		if ($contato != null):
-			echo "<label>";
-			echo "$contato";
-			echo "</label>";
-			/*
-		elseif ($erro != null):
-			echo $erro;
-			*/
-		else:
-			echo "";
-		endif;
-		echo "		<input class=\"btnfalar\" type=\"submit\" name=\"falar\" value=\"Enviar\" />";
-		echo "</form>";
-		echo "</div>";
-		echo "</div>";
-		echo "</li>";
-		echo "</div>";
-		echo "</center>";
+		?>
+
+		<center>
+			<div class="<?php echo "$color"; ?>">
+				<li style="display: block;">
+					<div class="megamenu half-width">
+						<div class="row">
+							<form method="post" action="">
+								<input id="nome" type="text" name="nome" placeholder="Nome"/>
+								<input id="email" type="text" name="email" placeholder="E-mail"/>
+								<input id="assunto" type="text" name="assunto" placeholder="Assunto"/>
+								<textarea class="text" type="text" name="mensagem" rows="8" placeholder="Mensagem"></textarea>
+		
+								<?php
+								if ($contatoerro != null):
+									echo "$contatoerro";
+								elseif ($erro != null):
+									echo $erro;
+								endif;
+								?>
+		
+								<input class="btnfalar" type="submit" name="falar" value="Enviar"/>
+							</form>
+						</div>
+					</div>
+				</li>
+			</div>
+		</center>
+
+		<?php
 	endif;
 ?>

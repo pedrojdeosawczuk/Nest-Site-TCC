@@ -103,14 +103,14 @@ class PHPMailer
      *
      * @var string
      */
-    public $From = '';
+    public $From = 'nestcontato@gmail.com';
 
     /**
      * The From name of the message.
      *
      * @var string
      */
-    public $FromName = '';
+    public $FromName = 'Nest Group';
 
     /**
      * The envelope sender of the message.

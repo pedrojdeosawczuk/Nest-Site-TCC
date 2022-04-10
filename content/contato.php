@@ -70,8 +70,8 @@
 		endif;
 	else:
 		if(isset($_POST['falar'])):
-			require_once "PHPMailer/class.phpmailer.php";
-			require_once "PHPMailer/class.smtp.php";
+			require_once "PHPMailer/PHPMailer.php";
+			require_once "PHPMailer/SMTP.php";
 			require_once('system/smtp.php');
 
 			$empresa	= "Grupo Nest";

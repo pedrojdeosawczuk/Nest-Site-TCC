@@ -208,8 +208,8 @@
 <body>
 	<div class="content">
 		<footer>
-			Having issues with this website? Open a issue on <a id="logo" href="https://github.com/pedrojdeosawczuk/Nest-Site-TCC">GitHub</a>.</br>
-			Made by <a id="logo" href="https://github.com/pedrojdeosawczuk">Pedro</a> and <a id="logo" href="https://github.com/Hugo-benjamim">Hugo</a> with ❤️
+			Having issues with this website? Open a issue on <a id="logo" href="https://github.com/pedrojosawczuk/Nest-Site-TCC">GitHub</a>.</br>
+			Made by <a id="logo" href="https://github.com/pedrojosawczuk">Pedro</a> and <a id="logo" href="https://github.com/Hugo-benjamim">Hugo</a> with ❤️
 		</footer>
 
 		<?php

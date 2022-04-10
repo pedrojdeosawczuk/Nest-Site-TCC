@@ -5,9 +5,41 @@ O site da __Nest__ é parte do trabalho de conclusão de curso no qual desenvolv
 
  Você pode ver o resultado final em [Site Nest](https://nestsitetcc.herokuapp.com/index.php).
 
-## Screenshots
+### Screenshots
 
 ### Computador
-[<img width=800 alt="Screenshot 1" src="prints/screenshot.png?raw=true">](prints/screenshot.png?raw=true)
-[<img width=800 alt="Screenshot 2" src="prints/screenshot2.png?raw=true">](prints/screenshot2.png?raw=true)
-[<img width=800 alt="Screenshot 3" src="prints/screenshot3.png?raw=true">](prints/screenshot3.png?raw=true)
+<details>
+  <summary>
+    Padrão
+  </summary>
+  <img width=800 alt="Screenshot 1" src="prints/screenshot.png?raw=true"/>
+  <img width=800 alt="Screenshot 2" src="prints/screenshot2.png?raw=true"/>
+  <img width=800 alt="Screenshot 3" src="prints/screenshot3.png?raw=true"/>
+</details>
+
+<details>
+  <summary>
+    Designer Logado
+  </summary>
+  <img width=800 alt="Screenshot 1" src="prints/screenshot.png?raw=true"/>
+  <img width=800 alt="Screenshot 2" src="prints/screenshot2.png?raw=true"/>
+  <img width=800 alt="Screenshot 3" src="prints/screenshot3.png?raw=true"/>
+</details>
+
+<details>
+  <summary>
+    Administrador Logado
+  </summary>
+  <img width=800 alt="Screenshot 1" src="prints/screenshot.png?raw=true"/>
+  <img width=800 alt="Screenshot 2" src="prints/screenshot2.png?raw=true"/>
+  <img width=800 alt="Screenshot 3" src="prints/screenshot3.png?raw=true"/>
+</details>
+
+<details>
+  <summary>
+    Usuário Logado
+  </summary>
+  <img width=800 alt="Screenshot 1" src="prints/screenshot.png?raw=true"/>
+  <img width=800 alt="Screenshot 2" src="prints/screenshot2.png?raw=true"/>
+  <img width=800 alt="Screenshot 3" src="prints/screenshot3.png?raw=true"/>
+</details>

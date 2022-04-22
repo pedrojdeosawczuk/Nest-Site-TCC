@@ -41,9 +41,9 @@ namespace PHPMailer\PHPMailer;
 //@see https://github.com/thephpleague/oauth2-google
 use League\OAuth2\Client\Provider\Google;
 //@see https://packagist.org/packages/hayageek/oauth2-yahoo
-use Hayageek\OAuth2\Client\Provider\Yahoo;
+//use Hayageek\OAuth2\Client\Provider\Yahoo;
 //@see https://github.com/stevenmaguire/oauth2-microsoft
-use Stevenmaguire\OAuth2\Client\Provider\Microsoft;
+//use Stevenmaguire\OAuth2\Client\Provider\Microsoft;
 
 if (!isset($_GET['code']) && !isset($_GET['provider'])) {
     ?>

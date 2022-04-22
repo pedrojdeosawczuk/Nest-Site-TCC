@@ -926,3 +926,18 @@ form {
 .erro {
 	color: #FA023C;
 }
+a:link {
+  color: #02b8fa;
+}
+/* visited link */
+a:visited {
+  color: #02b8fa;
+}
+/* mouse over link */
+a:hover {
+  color: #02b8fa;
+}
+/* selected link */
+a:active {
+  color: #02b8fa;
+}

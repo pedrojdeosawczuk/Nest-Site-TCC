@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Nest</title>
-	<link rel="shortcut icon" href="assets/img/logoAzul2.png"/>
+	<link id="favicon" rel="icon" type="image/x-icon" href="favicon.webp">
 	<link type="text/css" rel="stylesheet" href="assets/css/main.css"/>
 	<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>

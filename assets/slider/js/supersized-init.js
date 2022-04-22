@@ -19,12 +19,12 @@ jQuery(function($){
         // Components
         slide_links        : 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
         slides             : [    // Slideshow Images
-                                 {image : 'assets/slider/img/bg/1.png'},
-                                 {image : 'assets/slider/img/bg/2.png'},
-                                 {image : 'assets/slider/img/bg/3.png'},
-                                 {image : 'assets/slider/img/bg/4.png'}//,
-                                 //{image : 'assets/slider/img/bg/5.png'},
-                                 //{image : 'assets/slider/img/bg/6.png'}
+                                 {image : 'assets/slider/img/bg/1.webp'},
+                                 {image : 'assets/slider/img/bg/2.webp'},
+                                 {image : 'assets/slider/img/bg/3.webp'},
+                                 {image : 'assets/slider/img/bg/4.webp'}//,
+                                 //{image : 'assets/slider/img/bg/5.webp'},
+                                 //{image : 'assets/slider/img/bg/6.webp'}
                              ]
 
     });
